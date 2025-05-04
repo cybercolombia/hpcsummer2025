@@ -1,0 +1,154 @@
+\documentclass[serif,dvipsnames]{beamer}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb, amsthm, multirow}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage[T1]{fontenc} %for double straight quotes
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{textcomp} %for single straight quotes
+\usepackage{listings}
+
+\usepackage{enumitem}
+\setenumerate[1]{label=\arabic*.}
+\newcounter{ResumeEnumerate}
+
+\decimalpoint
+
+%no indentation
+\setlength\parindent{0pt}
+
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmname}[1]{\textsc{#1}}
+
+\newcommand{\dq}{\textquotedbl}
+\newcommand{\sq}{\textquotesingle}
+\newcommand{\bs}{\textbackslash}
+
+\newcommand{\blue}[1]{{\color{blue}#1}} 
+\newcommand{\red}[1]{{\color{Red}#1}} 
+
+%\documentclass[ignorenonframetext,10pt]{beamer}
+%\usepackage{graphicx}
+\usepackage{psfrag,ifpdf}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage[mathscr]{eucal}
+\usepackage{comment}
+\usepackage{ucs}
+%\usepackage{multimedia}
+\usepackage{media9}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning,shadows,trees}
+\usetikzlibrary{calc,decorations.pathreplacing}
+\usepackage[labelformat=empty]{caption}
+%%%%%%%%%%%%%% FOR MARCEL
+%\usepackage{CJK}
+%\usepackage[CJK, overlap]{ruby}
+%\renewcommand{\rubysep}{-0.2ex}
+
+%\mode<presentation>
+%{
+%\usetheme{JuanLesPins}
+%}
+
+%%%%%%%%%%tikz
+\newcommand{\ancho}{1.2}
+\newcommand{\rad}{1.4}
+\newcommand{\dbit}{0.56}
+\tikzstyle{head}=[scale=.8,auto=left,every node/.style={circle,fill=blue!20},font=\bfseries]
+\tikzstyle{simp}=[fill=white,text depth=2ex,align=left]
+\tikzstyle{rect}=[text width=\ancho cm,
+  rectangle,fill=blue!70!red!10!white,align=left,text=black,font=\bfseries]
+\tikzstyle{circ}=[minimum size=\rad cm,circle,fill=blue!70!red!10!white,text=black,font=\bfseries]
+\tikzstyle{bit}=[draw,fill=white,align=center,text depth=0.3ex,rectangle,text=black,font=\bfseries]
+\tikzstyle{ptr}=[draw,fill=white,align=left,text depth=0.3ex,text height=2.5ex,text width=0.3em,rectangle,text=black,font=\bfseries]
+\tikzstyle{dptr}=[draw,fill=white,align=left,text depth=0.1ex,text height=0.5ex,text width=0.3em,rectangle,text=black,font=\bfseries]
+\tikzstyle{meme}=[draw,fill=white,align=left,text depth=0.3ex,text height=2.5ex,text width=2.em,rectangle,text=black,font=\bfseries] 
+\tikzstyle{mems}=[draw,fill=white,align=left,text depth=0.3ex,text height=2.5ex,text width=2.em,rectangle,text=black,font=\bfseries] 
+\tikzstyle{mem}=[draw,fill=white,align=left,text depth=0.3ex,text height=2.5ex,text width=3.em,rectangle,text=black,font=\bfseries]
+\tikzstyle{memg}=[draw,fill=gray,align=left,text depth=0.3ex,text height=2.5ex,text width=3.em,rectangle,text=black,font=\bfseries]
+\tikzstyle{white}=[fill=white,align=center,text depth=0.3ex,rectangle,text=black,font=\bfseries]
+\tikzstyle{root}=[draw,minimum size=0.7 cm,circle,fill=green!20!red!70!white,align=center,font=\bfseries]
+\tikzstyle{interior}=[draw,minimum size=0.7 cm,circle,fill=green!30!red!30!white,align=center,font=\bfseries]
+\tikzstyle{leaf}=[draw,minimum size=0.7 cm,circle,fill=green!50!red!30!white,align=center,font=\bfseries]
+\tikzstyle{triang}=[draw,minimum size=1.4 cm,regular polygon,regular polygon sides=3,fill=green!50!red!20!white,align=center,font=\bfseries]
+
+\mode<presentation>
+    {
+      %\useinnertheme{rectangles}
+      %\usetheme{classic}
+      \usetheme{Frankfurt}
+      %\usetheme{Goettingen}
+      %\usetheme[compress]{Madrid}
+      %\usetheme{Pittsburgh}
+      %\usecolortheme{fly}
+      %\usecolortheme{seahorse}
+      \usecolortheme{beaver}
+      %\usecolortheme{seagull}
+      %\usefonttheme{structurebold}
+      %\setbeamercovered{transparent}
+    }
+
+
+\begin{document}
+
+\begin{frame}[fragile]
+
+    \begin{figure}[h]                                                            \
+                                                                                
+    \centering                                                                  
+    \resizebox{0.8\textwidth}{!}{%                                              
+    \begin{tikzpicture}                                                         
+      \node[white] (tit1) at (6,11)  {\small \color{red}Split};                 
+                                                                                
+      \node[white] (n0) at (6,10)  {\small \{3,5,{\color{red}2},7,4\}};         
+      \node[white] (n1) at (5,9)  {\small \{3,{\color{red}5}\}};                
+      \node[white] (n2) at (7,9)  {\small \{2,{\color{red}7},4\}};              
+      \node[white] (n3) at (4.5,8)  {\small \{3\}};                             
+      \node[white] (n4) at (5.5,8)  {\small \{5\}};                             
+      \node[white] (n5) at (6.5,8)  {\small \{2\}};                             
+      \node[white] (n6) at (7.5,8)  {\small \{7,{\color{red}4}\}};              
+      \node[white] (n7) at (7,7)  {\small \{7\}};                               
+      \node[white] (n8) at (8,7)  {\small \{4\}};
+
+      \draw[->,line width=1pt] (n0) to [out=-90,in=90] (n1);                    
+      \draw[->,line width=1pt] (n0) to [out=-90,in=90] (n2);                    
+      \draw[->,line width=1pt] (n1) to [out=-90,in=90] (n3);                    
+      \draw[->,line width=1pt] (n1) to [out=-90,in=90] (n4);                    
+      \draw[->,line width=1pt] (n2) to [out=-90,in=90] (n5);                    
+      \draw[->,line width=1pt] (n2) to [out=-90,in=90] (n6);                    
+      \draw[->,line width=1pt] (n6) to [out=-90,in=90] (n7);                    
+      \draw[->,line width=1pt] (n6) to [out=-90,in=90] (n8);                    
+                                                                                
+                                                                                
+      \node[white] (tit2) at (11.5,11)  {\small \color{blue}Merge};             
+                                                                                
+      \node[white] (n9) at (12.5,10)  {\small \{7\}};                           
+      \node[white] (n10) at (13.5,10)  {\small \{4\}};                          
+      \node[white] (n11) at (12,9)  {\small \{2\}};                             
+      \node[white] (n12) at (13,9)  {\small \{4,7\}};                           
+      \node[white] (n13) at (10,9)  {\small \{3\}};                             
+      \node[white] (n14) at (11,9)  {\small \{5\}};                             
+      \node[white] (n15) at (10.5,8)  {\small \{3,5\}};                         
+      \node[white] (n16) at (12.5,8)  {\small \{2,4,7\}};                       
+      \node[white] (n17) at (11.5,7)  {\small \{2,3,4,5,7\}};                   
+                                                                                
+      \draw[->,line width=1pt,blue,dashed] (n9) to [out=-90,in=90] (n12);       
+      \draw[->,line width=1pt,blue,dashed] (n10) to [out=-90,in=90] (n12);      
+      \draw[->,line width=1pt,blue,dashed] (n13) to [out=-90,in=90] (n15);      
+      \draw[->,line width=1pt,blue,dashed] (n14) to [out=-90,in=90] (n15);      
+      \draw[->,line width=1pt,blue,dashed] (n11) to [out=-90,in=90] (n16);      
+      \draw[->,line width=1pt,blue,dashed] (n12) to [out=-90,in=90] (n16);      
+      \draw[->,line width=1pt,blue,dashed] (n15) to [out=-90,in=90] (n17);      
+      \draw[->,line width=1pt,blue,dashed] (n16) to [out=-90,in=90] (n17);      
+                                                                                
+      \draw[->,line width=2pt] (8.5,11) to (9.5,11);                            
+    \end{tikzpicture}                                                           
+    }
+    \end{figure}                                                               
+  
+\end{frame}
+
+\end{document}
