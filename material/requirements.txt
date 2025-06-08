@@ -1,0 +1,5 @@
+ipykernel
+numpy
+matplotlib
+seaborn
+pybind11
