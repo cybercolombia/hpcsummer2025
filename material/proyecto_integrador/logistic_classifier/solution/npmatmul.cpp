@@ -84,8 +84,8 @@ py::tuple matrix_multiply_omp(py::array_t<double,py::array::c_style> A,
     #pragma omp for schedule(auto), collapse(2)
     for(int i = 0; i < nrows; i++){
       for(int j = 0; j < ncols; j++){
-	for(int k = 0; k < nn; k++)
-	  ptr_res[i*ncols+j] += ptr_A[i*nn+k] * ptr_B[k*ncols+j]; 
+	      for(int k = 0; k < nn; k++)
+	        ptr_res[i*ncols+j] += ptr_A[i*nn+k] * ptr_B[k*ncols+j]; 
       }
     }
   }

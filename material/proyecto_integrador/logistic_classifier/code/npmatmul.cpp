@@ -78,18 +78,12 @@ std::tuple<py::array_t<double>, double>  matrix_multiply_omp(py::array_t<double,
   omp_set_num_threads(4);
     
   //Perform the matrix multiplication
-  #pragma omp parallel default(shared)
-  {
-    //if(omp_get_thread_num() == 0)
-    //  printf("num threads: %d\n",omp_get_num_threads());
-    #pragma omp for schedule(auto), collapse(2)
-    for(int i = 0; i < nrows; i++){
-      for(int j = 0; j < ncols; j++){
-	    for(int k = 0; k < nn; k++)
-	      ptr_res[i*ncols+j] += ptr_A[i*nn+k] * ptr_B[k*ncols+j]; 
-      }
-    }
-  }
+  /**** 
+   Write the parallel code here
+   using OpenMP.
+   The code should be similar to the one in the previous function,
+   but with the addition of OpenMP pragmas to parallelize the loops.
+  ****/
 
   double end = omp_get_wtime();
   double run_time = end-start;

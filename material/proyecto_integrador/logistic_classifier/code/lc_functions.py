@@ -3,7 +3,8 @@ import npmatmul
 
 # Logistic function------------------------------------
 def logistic(X, Theta):
-    dot, t = npmatmul.matrix_multiply(X, Theta)
+    #dot, t = npmatmul.matrix_multiply(X, Theta)
+    dot, t = npmatmul.matrix_multiply_omp(X, Theta)
     return (1.0 / (1 + np.exp(-dot)), t)
 
 #Cost function-----------------------------------------
@@ -33,7 +34,8 @@ def grad_J(X, y, Theta, lamb):
     thetac[:,0] = 0
     reg = fact*thetac
 
-    mat, t1 = npmatmul.matrix_multiply(X.T,Ay)
+    #mat, t1 = npmatmul.matrix_multiply(X.T,Ay)
+    mat, t1 = npmatmul.matrix_multiply_omp(X.T,Ay)
     return (mat/y.shape[0] + reg, t+t1)
 
 # Gradient descent algorithm---------------------------
@@ -59,7 +61,8 @@ def logi(z):
     return 1.0 / (1 + np.exp(-z))
 
 def predictOneVsAll(X, Theta):
-    mat, t = npmatmul.matrix_multiply(X,Theta)
+    #mat, t = npmatmul.matrix_multiply(X,Theta)
+    mat, t = npmatmul.matrix_multiply_omp(X,Theta)
     M = logi(mat)
     p = np.array([[np.where(row == np.max(row))[0][0]] for row in M])
     return p
