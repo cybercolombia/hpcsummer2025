@@ -1,5 +1,5 @@
 #include <cstdio>
-#include <cstdlib>
+#include <string>
 
 int greatest(int a, int b, int c) {
   if(a > b && a > c){
@@ -12,9 +12,9 @@ int greatest(int a, int b, int c) {
 }
 
 int main(int argc, char *argv[]) {
-  int x = atoi(argv[1]);
-  int y = atoi(argv[2]);
-  int z = atoi(argv[3]);
+  int x = std::stoi(std::string(argv[1]));
+  int y = std::stoi(std::string(argv[2]));
+  int z = std::stoi(std::string(argv[3]));
 
   int gr = greatest(x, y, z);
   printf("The greatest number is %d\n",gr);

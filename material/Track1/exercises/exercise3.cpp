@@ -1,10 +1,10 @@
 #include <cstdio>
-#include <cstdlib>
+#include <string>
 
 //Your code here
 
 int main(int argc, char *argv[]) {
-  int a = atoi(argv[1]);
+  int a = std::stoi(std::string(argv[1]));
 
   //Your code here
   

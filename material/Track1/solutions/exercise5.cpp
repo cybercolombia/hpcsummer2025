@@ -10,7 +10,7 @@ void matrix_multiply(const int *ptr_A, const int *ptr_B, int *ptr_res,
   for(int i = 0; i < nrows; i++){
     for(int j = 0; j < ncols; j++){
       for(int k = 0; k < nn; k++)
-    	ptr_res[i*ncols+j] += ptr_A[i*nn+k] * ptr_B[k*ncols+j];  
+    	  ptr_res[i*ncols+j] += ptr_A[i*nn+k] * ptr_B[k*ncols+j];  
     }
   }
 }
@@ -28,11 +28,11 @@ int main(int argc, char *argv[]) {
   //initialize a and b
   for(int i = 0; i < nrows; i++){
     for(int j = 0; j < nn; j++)
-        a[i*nn+j] = 1;
+      a[i*nn+j] = 1;
   }
   for(int i = 0; i < nn; i++){
     for(int j = 0; j < ncols; j++)
-        b[i*ncols+j] = 1;
+      b[i*ncols+j] = 1;
   } 
 
   matrix_multiply(a,b,c,nrows,ncols,nn);
