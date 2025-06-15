@@ -72,7 +72,7 @@ py::tuple matrix_multiply_omp(py::array_t<double,py::array::c_style> A,
   double *ptr_B = static_cast<double *>(B_buf.ptr);
   double *ptr_res = static_cast<double *>(res_buf.ptr);
 
-  omp_set_num_threads(8);
+  omp_set_num_threads(2);
 
   double start = omp_get_wtime();
     

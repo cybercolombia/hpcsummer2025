@@ -75,7 +75,7 @@ std::tuple<py::array_t<double>, double>  matrix_multiply_omp(py::array_t<double,
   double *ptr_B = static_cast<double *>(B_buf.ptr);
   double *ptr_res = static_cast<double *>(res_buf.ptr);
 
-  omp_set_num_threads(4);
+  omp_set_num_threads(8);
     
   //Perform the matrix multiplication
   /**** 
