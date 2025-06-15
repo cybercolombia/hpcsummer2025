@@ -1,27 +1,29 @@
 #include <cstdio>
 
-int* element(int *array, int i, int j) {
-  int *p = &array[i*4+j];
-  return p;
+int dot_product(int *v1, int *v2, int size) {
+  int result = 0;
+  for (int i = 0; i < size; i++) {
+    result += v1[i] * v2[i];
+  }
+  return result;
 }
 
 int main(int argc, char *argv[]) {
-  int *a = new int[20];
+  unsigned N = 20;
+  int *v1 = new int[N];
+  int *v2 = new int[N];
 
-  for(int i = 0; i < 5; i++){
-    for(int j = 0; j < 4; j++){
-      *element(a,i,j) = 4*i+j;
-    }
+  for (int i = 0; i < N; i++) {
+    v1[i] = 1;
+    v2[i] = 1;
   }
 
-  for(int i = 0; i < 5; i++){
-    for(int j = 0; j < 4; j++){
-      printf("%d ",*element(a,i,j));
-    }
-    printf("\n");
-  }
+  int res = dot_product(v1, v2, N);
+
+  printf("Dot product: %d\n", res);
   
-  delete[] a;
+  delete[] v1;
+  delete[] v2;
   
   return 0;
 }

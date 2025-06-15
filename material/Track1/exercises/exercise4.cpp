@@ -1,21 +1,21 @@
 #include <cstdio>
 
-int* element(int *array, int i, int j) {
-  int *p = &array[i*4+j];
-  return p;
+int dot_product(int *v1, int *v2, int size) {
+  int result = 0;
+  for (int i = 0; i < size; i++) {
+    result += v1[i] * v2[i];
+  }
+  return result;
 }
 
 int main(int argc, char *argv[]) {
-  //Allocate memory
+  //Allocate memory for the vectors v1 and v2 of size 20
 
-  //Initialize values from 0 to 19 using element function
+  //Initialize the vectors to 1
   
-  //Print values of the array using element function as
-  //0 1 2 3
-  //4 5 6 7
-  //8 9 10 11
-  //12 13 14 15
-  //16 17 18 19
+  //Perform the vector product of v1 and v2 using the dot_product function
+  
+  //Print the result
   
   //Free memory
   
