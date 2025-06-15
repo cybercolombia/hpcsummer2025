@@ -1,0 +1,4 @@
+pip install ipykernel
+python -m ipykernel install --user --name=venv
+
+Then it is possible to choose the environment venv as a kernel (assuming venv is the name of the environment).
