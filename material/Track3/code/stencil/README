@@ -1,0 +1,16 @@
+To compile the programs, run "make".
+
+Note: The Makefile assumes mpicc is the compile script for MPI
+programs and that it is in your default path. If not, edit the
+Makefile appropriately.
+
+The programs stencil_mpi_ddt_funneled.c and stencil_mpi_ddt_multiple.c
+need an OpenMP-enabled compiler.
+
+You can run any of the "stencil" programs as follows:
+
+mpiexec -n 4 ./stencil_mpi 100 1 200 2 2
+
+You can run ga_mpi_ddt_rma as follows:
+
+mpiexec -n 16 ./ga_mpi_ddt_rma 100 25 4 4
